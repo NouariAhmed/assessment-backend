@@ -125,8 +125,16 @@ app.get('/api/seed', async (req, res) => {
   res.json({ message: "Seed check complete" });
 });
 
+// Health Endpoint
+app.get('/api/health', (req, res) => {
+  res.json({ status: "ok" });
+});
+
 // --- 3. Start Server ---
 app.listen(PORT, async () => {
   await ensureDataExists(); // Auto-seed on startup
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+
+
